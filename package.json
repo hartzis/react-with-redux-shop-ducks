@@ -1,0 +1,34 @@
+{
+  "name": "react-with-redux-shop-ducks",
+  "version": "1.0.0",
+  "description": "shopping cart example with react and redux",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hartzis/react-with-redux-shop-ducks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hartzis/react-with-redux-shop-ducks/issues"
+  },
+  "homepage": "https://github.com/hartzis/react-with-redux-shop-ducks#readme",
+  "dependencies": {
+    "react": "^0.13.3",
+    "react-redux": "^0.2.2",
+    "redux": "^1.0.0-rc",
+    "redux-thunk": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.19",
+    "babel-loader": "^5.3.2",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.8",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
