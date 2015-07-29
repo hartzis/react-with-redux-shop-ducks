@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import Duck from './Duck';
 
 export default class DuckCart extends Component {
 
   render() {
 
-    let {ducks} = this.props;
+    const {ducks, addToCart} = this.props;
     let $renderedDucks = ducks.map((duck, idx)=>{
-      return (<div key={idx}>duck{idx}</div>);
+      return (<Duck key={idx} duck={duck} addToCart={addToCart} />);
     });
 
     return (
-      <div>
+      <div className="ducksContainer">
         {$renderedDucks}
       </div>
     )

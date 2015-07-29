@@ -1,16 +1,17 @@
 import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS} from '../constants/ActionTypes';
 
-export function addToCart(duckId) {
+export function addToCart(duck) {
+  let {date_taken, title} = duck;
   return {
     type: ADD_TO_CART,
-    payload: duckId
+    payload: { date_taken, title }
   }
 }
 
-export function removeFromCart(duckId) {
+export function removeFromCart(duck) {
   return {
     type: REMOVE_FROM_CART,
-    payload: duckId
+    payload: duck
   }
 }
 
