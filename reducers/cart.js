@@ -6,7 +6,10 @@ const initialState = Im.fromJS({ ducks: [], ducksInCart: [], loading: true });
 export default function cart(state = initialState, action) {
   switch (action.type) {
     case SET_DUCKS:
-      return state.set('ducks', action.payload).set('loading', false);
+      return state.merge({
+        'ducks': action.payload,
+        'loading': false
+      });
     case ADD_TO_CART:
       return state.update('ducksInCart', ducksInCart=>ducksInCart.push(action.payload));
     case REMOVE_FROM_CART:

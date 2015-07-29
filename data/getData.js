@@ -1,4 +1,4 @@
- export default function getDucks(passedInCallback) {
+ export function getDucks(passedInCallback) {
 
     // setup query
     var tags = 'duck';
