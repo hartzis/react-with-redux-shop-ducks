@@ -10,15 +10,16 @@ export default class Duck extends Component {
       }),
       title: PropTypes.string
     }),
-    addToCart: PropTypes.func
+    addToCart: PropTypes.func,
+    inCart: PropTypes.bool
   }
 
   render() {
-    let {duck, addToCart} = this.props;
+    let {duck, inCart, addToCart} = this.props;
     return (
-      <div className="duck">
+      <div className="duck" style={{'border': 'solid gray 2px', 'textAlign': 'center'}}>
         <img src={duck.media.m} />
-      <button onClick={()=>addToCart(duck)}>
+        <button onClick={()=>addToCart(duck)} disabled={inCart} style={{'display': 'block'}}>
           Add to Cart &#162;
         </button>
       </div>

@@ -13,7 +13,11 @@ export default function cart(state = initialState, action) {
     case ADD_TO_CART:
       return state.update('ducksInCart', ducksInCart=>ducksInCart.push(action.payload));
     case REMOVE_FROM_CART:
-      return state.update('ducksInCart', ducksInCart=>ducksInCart.filter(duckId=>duckId !== action.payload));
+      return state.update('ducksInCart', (ducksInCart)=>{
+        return ducksInCart.filter((duck)=>{
+          return duck.date_taken !== action.payload.date_taken && duck.title !== action.payload.title
+        })
+      });
     default:
       return state;
   }

@@ -17,7 +17,7 @@ export default class CounterApp extends Component {
         <h1 className="duckTitle">Shop ducks with redux!</h1>
         <h5 className="disclaimer">&#42; some ducks might not actually be ducks</h5>
         <DuckCart ducksInCart={ducksInCart} {...bindActionCreators(CartActions, dispatch)} />
-        <DucksToBuy ducks={ducks} {...bindActionCreators(CartActions, dispatch)} />
+        <DucksToBuy ducks={ducks} ducksInCart={ducksInCart} {...bindActionCreators(CartActions, dispatch)} />
       </div>
     );
   }

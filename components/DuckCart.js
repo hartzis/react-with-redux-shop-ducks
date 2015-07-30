@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 
 export default class DuckCart extends Component {
   render() {
-    let {ducksInCart} = this.props;
+    let {ducksInCart, removeFromCart} = this.props;
     let $renderedDucksInCart = ducksInCart.map((duck, idx)=>{
-      return (<div className="duckInCart" key={idx}>{duck.date_taken}-{duck.title}</div>);
+      return (
+        <div className="duckInCart" key={idx}>
+          {duck.date_taken}-{duck.title}
+          <button onClick={()=>removeFromCart(duck)}>
+            Remove &#164;
+          </button>
+        </div>
+      );
     })
     return (
       <div className="cartContainer">
