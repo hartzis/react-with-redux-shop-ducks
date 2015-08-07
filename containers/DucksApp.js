@@ -5,7 +5,8 @@ import DucksToBuy from '../components/DucksToBuy';
 import DuckCart from '../components/DuckCart';
 import * as CartActions from '../actions/CartActions';
 
-class DucksApp extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class DucksApp extends Component {
   render() {
     const { ducks, ducksInCart, actions } = this.props;
     return (
@@ -21,7 +22,7 @@ class DucksApp extends Component {
 
 function mapStateToProps(state) {
   return {
-    ducks: state.cart.get('ducsk').toJS(),
+    ducks: state.cart.get('ducks').toJS(),
     ducksInCart: state.cart.get('ducksInCart').toJS()
   }
 }
@@ -31,5 +32,3 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(CartActions, dispatch)
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(DucksApp)
