@@ -5,9 +5,9 @@ shopping cart example with react and redux
 
 #### Redux libs used
 
-- [redux](https://github.com/gaearon/redux) - v1.0.0-rc
+- [redux](https://github.com/gaearon/redux) - v3.0.4
 
-- [react-redux](https://github.com/gaearon/react-redux) - v0.5.1
+- [react-redux](https://github.com/gaearon/react-redux) - v4.0.0
 
 ## Run Example
 
