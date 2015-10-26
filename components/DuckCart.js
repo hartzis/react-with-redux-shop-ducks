@@ -15,7 +15,7 @@ export default class DuckCart extends Component {
     })
     return (
       <div className="cartContainer">
-        <h3 className="cartTitle">&#162;&nbsp;Ducks in yer kart&nbsp;&#162;</h3>
+        <h3 className="cartTitle">Ducks in yer kart</h3>
         {$renderedDucksInCart}
       </div>
     )

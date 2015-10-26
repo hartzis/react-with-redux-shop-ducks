@@ -15,7 +15,7 @@
         // remove from global scope
         delete window.jsonFlickrFeed;
 
-        return passedInCallback({ducks});
+        return passedInCallback(ducks);
 
     };
 

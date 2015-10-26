@@ -12,7 +12,7 @@ export default class DuckCart extends Component {
 
   render() {
 
-    const {ducks, ducksInCart, addToCart} = this.props;
+    const {ducks, ducksInCart, addToCart, loading} = this.props;
     let $renderedDucks = ducks.map((duck, idx)=>{
       return (<Duck key={idx} inCart={this._isInCart(duck, ducksInCart)} duck={duck} addToCart={addToCart} />);
     });
@@ -20,6 +20,7 @@ export default class DuckCart extends Component {
     return (
       <div className="ducksContainer" style={{'display': 'flex', 'flexWrap': 'wrap', 'justifyContent': 'center'}}>
         {$renderedDucks}
+        {loading ? (<span>Ducks are loading...</span>) : null}
       </div>
     )
   }
