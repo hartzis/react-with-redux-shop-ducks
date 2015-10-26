@@ -1,7 +1,11 @@
 import * as Im from 'immutable';
 import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS} from '../constants/ActionTypes';
 
-const initialState = Im.fromJS({ ducks: [], ducksInCart: [], loading: true });
+const initialState = Im.fromJS({
+  ducks: [],
+  ducksInCart: [],
+  loading: true,
+});
 
 export default function cart(state = initialState, action) {
   switch (action.type) {

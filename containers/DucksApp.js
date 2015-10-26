@@ -5,16 +5,30 @@ import DucksToBuy from '../components/DucksToBuy';
 import DuckCart from '../components/DuckCart';
 import * as CartActions from '../actions/CartActions';
 
-@connect(mapStateToProps, mapDispatchToProps)
-export default class DucksApp extends Component {
+class DucksApp extends Component {
+
+  componentDidMount() {
+    this.props.getDucks();
+  }
+
   render() {
-    const { ducks, ducksInCart, actions } = this.props;
+    const { ducks, ducksInCart, addToCart, removeFromCart, loading } = this.props;
     return (
       <div className="appContainer">
         <h1 className="duckTitle">Shop ducks with redux!</h1>
         <h5 className="disclaimer">&#42; some ducks might not actually be ducks</h5>
-        <DuckCart ducksInCart={ducksInCart} {...actions} />
-        <DucksToBuy ducks={ducks} ducksInCart={ducksInCart} {...actions} />
+
+        <hr/>
+        <DuckCart ducksInCart={ducksInCart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart} />
+
+        <hr/>
+        <DucksToBuy ducks={ducks}
+          ducksInCart={ducksInCart}
+          loading={loading}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart} />
       </div>
     );
   }
@@ -23,12 +37,9 @@ export default class DucksApp extends Component {
 function mapStateToProps(state) {
   return {
     ducks: state.cart.get('ducks').toJS(),
-    ducksInCart: state.cart.get('ducksInCart').toJS()
+    ducksInCart: state.cart.get('ducksInCart').toJS(),
+    loading: state.cart.get('loading'),
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(CartActions, dispatch)
-  }
-}
+export default connect(mapStateToProps, CartActions)(DucksApp);
