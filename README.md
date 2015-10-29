@@ -7,9 +7,11 @@ shopping cart example with react and redux
 
 #### Redux libs used
 
-- [redux](https://github.com/gaearon/redux) - v3.0.4
+- [redux](https://github.com/rackt/redux) - v3.0.4
+- [react-redux](https://github.com/rackt/react-redux) - v4.0.0
+- [redux-form](https://github.com/erikras/redux-form) - v3.0.0-beta-2
 
-- [react-redux](https://github.com/gaearon/react-redux) - v4.0.0
+
 
 ## Run Example
 

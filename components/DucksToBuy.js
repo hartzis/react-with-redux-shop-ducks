@@ -13,14 +13,18 @@ export default class DuckCart extends Component {
   render() {
 
     const {ducks, ducksInCart, addToCart, loading} = this.props;
-    let $renderedDucks = ducks.map((duck, idx)=>{
-      return (<Duck key={idx} inCart={this._isInCart(duck, ducksInCart)} duck={duck} addToCart={addToCart} />);
-    });
+    let $renderedDucks = null;
+    if (ducks.length) {
+      $renderedDucks = ducks.map((duck, idx)=>{
+        return (<Duck key={idx} inCart={this._isInCart(duck, ducksInCart)} duck={duck} addToCart={addToCart} />);
+      });
+    } else {
+      $renderedDucks = (<span>Cart search term returned no items(ducks)...</span>);
+    }
 
     return (
       <div className="ducksContainer" style={{'display': 'flex', 'flexWrap': 'wrap', 'justifyContent': 'center'}}>
-        {$renderedDucks}
-        {loading ? (<span>Ducks are loading...</span>) : null}
+        {loading ? (<span>Ducks are loading...</span>) : $renderedDucks}
       </div>
     )
   }

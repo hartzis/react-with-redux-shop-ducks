@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS} from '../constants/ActionTypes';
+import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS, SET_LOADING} from '../constants/ActionTypes';
 import {getDucks as getDucksData} from '../data/getData';
 
 export function addToCart(duck) {
@@ -16,6 +16,13 @@ export function removeFromCart(duck) {
   }
 }
 
+export function setLoading(value) {
+  return {
+    type: SET_LOADING,
+    payload: value
+  }
+}
+
 export function setDucks(ducks) {
   return {
     type: SET_DUCKS,
@@ -23,10 +30,15 @@ export function setDucks(ducks) {
   }
 }
 
-export function getDucks() {
+export function getDucks(query) {
   return (dispatch) => {
+    // loading cart
+    dispatch(setLoading(true));
+    // find cart items by query
     getDucksData((ducks)=>{
       dispatch(setDucks(ducks));
+    }, {
+      query
     })
   }
 }

@@ -3,12 +3,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DucksToBuy from '../components/DucksToBuy';
 import DuckCart from '../components/DuckCart';
+import ShopSearch from '../components/ShopSearch';
 import * as CartActions from '../actions/CartActions';
+
+const INITIAL_QUERY = 'duck';
 
 class DucksApp extends Component {
 
   componentDidMount() {
-    this.props.getDucks();
+    this.props.getDucks(INITIAL_QUERY);
+  }
+
+  _onSubmit({query}) {
+    this.props.getDucks(query);
   }
 
   render() {
@@ -17,7 +24,7 @@ class DucksApp extends Component {
       <div className="appContainer">
         <h1 className="duckTitle">Shop ducks with redux!</h1>
         <h5 className="disclaimer">&#42; some ducks might not actually be ducks</h5>
-
+        <ShopSearch initialValues={{query: INITIAL_QUERY}} onSubmit={(data)=>this._onSubmit(data)}/>
         <hr/>
         <DuckCart ducksInCart={ducksInCart}
           addToCart={addToCart}
