@@ -1,13 +1,13 @@
- export function getDucks(passedInCallback) {
+ export function getDucks(passedInCallback, {query}) {
 
     // setup query
-    var tags = 'duck';
-    var tagmode = "any";
-    var format = "json";
+    let tags = query || '';
+    let tagmode = "any";
+    let format = "json";
 
-    var query = "tags=" + tags + "&tagmode=" + tagmode + "&format=" + format;
+    let queryString = "tags=" + tags + "&tagmode=" + tagmode + "&format=" + format;
 
-    var jsonCallback = function ( data ) {
+    let jsonCallback = function ( data ) {
         console.log('ducks-', data);
 
         let ducks = data.items;
@@ -20,14 +20,14 @@
     };
 
     // Vanilla
-    var jsonFlickrFeed = function ( data ) {
+    let jsonFlickrFeed = function ( data ) {
       jsonCallback( data );
     }
     // put on global scope temporaralllyyyy
     window.jsonFlickrFeed = jsonFlickrFeed;
-    var scr = document.createElement('script');
+    let scr = document.createElement('script');
 
-    scr.src = 'http://api.flickr.com/services/feeds/photos_public.gne?callback=jsonFlickrFeed&' + query;
+    scr.src = 'http://api.flickr.com/services/feeds/photos_public.gne?callback=jsonFlickrFeed&' + queryString;
     document.body.appendChild(scr);
 
 }

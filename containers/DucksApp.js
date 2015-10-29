@@ -8,7 +8,7 @@ import * as CartActions from '../actions/CartActions';
 class DucksApp extends Component {
 
   componentDidMount() {
-    this.props.getDucks();
+    this.props.getDucks(this.props.query);
   }
 
   render() {
@@ -39,6 +39,7 @@ function mapStateToProps(state) {
     ducks: state.cart.get('ducks').toJS(),
     ducksInCart: state.cart.get('ducksInCart').toJS(),
     loading: state.cart.get('loading'),
+    query: state.cart.get('query'),
   }
 }
 

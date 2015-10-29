@@ -1,10 +1,11 @@
 import * as Im from 'immutable';
-import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS} from '../constants/ActionTypes';
+import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS, SET_LOADING} from '../constants/ActionTypes';
 
 const initialState = Im.fromJS({
   ducks: [],
   ducksInCart: [],
-  loading: true,
+  loading: false,
+  query: 'duck',
 });
 
 export default function cart(state = initialState, action) {
@@ -14,6 +15,8 @@ export default function cart(state = initialState, action) {
         'ducks': action.payload,
         'loading': false
       });
+    case SET_LOADING:
+      return state.set('loading', action.payload);
     case ADD_TO_CART:
       return state.update('ducksInCart', ducksInCart=>ducksInCart.push(action.payload));
     case REMOVE_FROM_CART:
