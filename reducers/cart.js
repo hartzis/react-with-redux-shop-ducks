@@ -5,7 +5,6 @@ const initialState = Im.fromJS({
   ducks: [],
   ducksInCart: [],
   loading: false,
-  query: 'duck',
 });
 
 export default function cart(state = initialState, action) {
