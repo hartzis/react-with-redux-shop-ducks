@@ -1,7 +1,7 @@
 > Updated redux & react versions! - react v0.14 now
 
 # react-with-redux-shop-ducks
-shopping cart example with react and redux
+"searchable" shopping cart example with react, redux, and redux-form
 
 [Live example](http://www.hartzis.me/react-with-redux-shop-ducks/)
 
