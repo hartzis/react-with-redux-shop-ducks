@@ -11,18 +11,14 @@ function _isInCart(duck, ducksInCart) {
 export default function DuckCart(props) {
 
   const {ducks, ducksInCart, addToCart, loading} = props;
-  let $renderedDucks = null;
-  if (ducks.length) {
-    $renderedDucks = ducks.map((duck, idx)=>{
-      return (<Duck key={idx} inCart={_isInCart(duck, ducksInCart)} duck={duck} addToCart={addToCart} />);
-    });
-  } else {
-    $renderedDucks = (<span>Cart search term returned no items(ducks)...</span>);
-  }
 
   return (
     <div className="ducksContainer" style={{'display': 'flex', 'flexWrap': 'wrap', 'justifyContent': 'center'}}>
-      {loading ? (<span>Ducks are loading...</span>) : $renderedDucks}
+      <span display-if={loading}>Ducks are loading...</span>
+      <div display-if={!loading && ducks.length} style={{'display': 'flex', 'flexWrap': 'wrap'}}>
+        {ducks.map((duck, idx)=>(<Duck key={idx} inCart={_isInCart(duck, ducksInCart)} duck={duck} addToCart={addToCart} />))}
+      </div>
+      <span display-if={!ducks.length}>Cart search term returned no items(ducks)...</span>
     </div>
   )
 }
