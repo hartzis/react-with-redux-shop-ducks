@@ -9,11 +9,24 @@ export default function Duck(props) {
     'margin': '3px',
     'padding': '3px',
  };
+ let addButtonStyles = {
+    'margin': '5px',
+    'padding': '5px',
+    'backgroundColor': 'lightgray',
+    'border': '2px solid gray',
+  };
+  let duckTitleStyle = {
+    'maxWidth': '240px',
+    'textOverflow': 'ellipsis',
+    'whiteSpace': 'nowrap',
+    'overflow': 'hidden',
+  };
   return (
     <div className="duck" style={duckStyles}>
       <img src={duck.media.m} />
       <div>
-        <button onClick={()=>addToCart(duck)} disabled={inCart}>
+        <div style={duckTitleStyle}>{duck.title || duck.date_taken}</div>
+        <button style={addButtonStyles} onClick={()=>addToCart(duck)} disabled={inCart}>
           {inCart ? 'In Cart' : (<span>Add to Cart &#162;</span>)}
         </button>
       </div>
