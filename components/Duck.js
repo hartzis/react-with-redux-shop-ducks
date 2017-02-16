@@ -1,26 +1,37 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-export default class Duck extends Component {
+export default function Duck(props) {
 
-  render() {
-    let {duck, inCart, addToCart} = this.props;
-    let duckStyles = {
-      'border': 'solid gray 2px',
-      'textAlign': 'center',
-      'margin': '3px',
-      'padding': '3px',
-   };
-    return (
-      <div className="duck" style={duckStyles}>
-        <img src={duck.media.m} />
-        <div>
-          <button onClick={()=>addToCart(duck)} disabled={inCart}>
-            {inCart ? 'In Cart' : (<span>Add to Cart &#162;</span>)}
-          </button>
-        </div>
+  let {duck, inCart, addToCart} = props;
+  let duckStyles = {
+    'border': 'solid gray 2px',
+    'textAlign': 'center',
+    'margin': '3px',
+    'padding': '3px',
+ };
+ let addButtonStyles = {
+    'margin': '5px',
+    'padding': '5px',
+    'backgroundColor': 'lightgray',
+    'border': '2px solid gray',
+  };
+  let duckTitleStyle = {
+    'maxWidth': '240px',
+    'textOverflow': 'ellipsis',
+    'whiteSpace': 'nowrap',
+    'overflow': 'hidden',
+  };
+  return (
+    <div className="duck" style={duckStyles}>
+      <img src={duck.media.m} />
+      <div>
+        <div style={duckTitleStyle}>{duck.title || duck.date_taken}</div>
+        <button style={addButtonStyles} onClick={()=>addToCart(duck)} disabled={inCart}>
+          {inCart ? 'In Cart' : (<span>Add to Cart &#162;</span>)}
+        </button>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Duck.propTypes = {

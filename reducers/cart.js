@@ -17,12 +17,10 @@ export default function cart(state = initialState, action) {
     case SET_LOADING:
       return state.set('loading', action.payload);
     case ADD_TO_CART:
-      return state.update('ducksInCart', ducksInCart=>ducksInCart.push(action.payload));
+      return state.update('ducksInCart', ducksInCart=>ducksInCart.push(Im.fromJS(action.payload)));
     case REMOVE_FROM_CART:
       return state.update('ducksInCart', (ducksInCart)=>{
-        return ducksInCart.filter((duck)=>{
-          return duck.date_taken !== action.payload.date_taken && duck.title !== action.payload.title
-        })
+        return ducksInCart.filter(duck=>duck.get('link') !== action.payload.link);
       });
     default:
       return state;

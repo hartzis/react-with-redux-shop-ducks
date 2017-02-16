@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 
-export default class DuckCart extends Component {
-  render() {
-    let {ducksInCart, removeFromCart} = this.props;
-    let $renderedDucksInCart = ducksInCart.map((duck, idx)=>{
-      return (
-        <div className="duckInCart" key={idx}>
-          {duck.date_taken}-{duck.title}
-          <button onClick={()=>removeFromCart(duck)}>
-            Remove &#164;
-          </button>
-        </div>
-      );
-    })
+  let addButtonStyles = {
+    'marginLeft': '5px',
+    'padding': '3px',
+    'backgroundColor': 'lightgray',
+    'border': '2px solid gray',
+  };
+  let duckInCartStyle = {
+    'padding': '3px',
+    'borderLeft': '2px solid gray',
+    'borderBottom': '2px solid gray',
+  };
+
+export default function DuckCart(props) {
+  let {ducksInCart, removeFromCart} = props;
+  let $renderedDucksInCart = ducksInCart.map((duck, idx)=>{
     return (
-      <div className="cartContainer">
-        <h3 className="cartTitle">Ducks in yer kart</h3>
-        {$renderedDucksInCart}
+      <div style={duckInCartStyle} className="duckInCart" key={idx}>
+        {duck.title || duck.date_taken}
+        <button style={addButtonStyles} onClick={()=>removeFromCart(duck)}>
+          Remove &#164;
+        </button>
       </div>
-    )
-  }
+    );
+  })
+  return (
+    <div className="cartContainer">
+      <h3 className="cartTitle">Ducks in yer kart</h3>
+      {$renderedDucksInCart}
+    </div>
+  )
 }

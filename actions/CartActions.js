@@ -2,10 +2,10 @@ import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS, SET_LOADING} from '../constant
 import {getDucks as getDucksData} from '../data/getData';
 
 export function addToCart(duck) {
-  let {date_taken, title} = duck;
+  let {date_taken, title, link} = duck;
   return {
     type: ADD_TO_CART,
-    payload: { date_taken, title }
+    payload: { date_taken, title, link }
   }
 }
 

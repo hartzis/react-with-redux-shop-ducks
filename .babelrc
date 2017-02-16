@@ -1,3 +1,4 @@
 {
-  "stage": 0
+  "plugins": ["transform-object-rest-spread", "jsx-display-if"],
+  "presets": ["es2015", "react"]
 }
