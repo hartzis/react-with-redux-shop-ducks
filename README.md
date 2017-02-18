@@ -15,8 +15,9 @@ Wrote an accompanying [blog post](http://www.hartzis.me/functional-redux-ducks/)
 - [redux-form](https://github.com/erikras/redux-form) - v3.0.5
 
 #### build
-- [babel](https://babeljs.io/) - v6.0.0
-- [webpack](https://webpack.js.org/) - v2.0.0
+- [babel](https://babeljs.io/) - v6.23.0
+- [webpack](https://webpack.js.org/) - v2.2.0
+- [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) - v2.3.0
 
 #### jsx helpers
 - [display-if](https://github.com/craftsy/babel-plugin-jsx-display-if) - Allows conditional displaying via `<div display-if={true} >`
