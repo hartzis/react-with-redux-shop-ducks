@@ -5,7 +5,7 @@
 
 Wrote an accompanying [blog post](http://www.hartzis.me/functional-redux-ducks/).
 
-[Live example](http://www.hartzis.me/react-with-redux-shop-ducks/)
+[Live example](http://hartzis.github.io/react-with-redux-shop-ducks/)
 
 ### key libs used
 
