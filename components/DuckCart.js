@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
-  let addButtonStyles = {
-    'marginLeft': '5px',
-    'padding': '3px',
-    'backgroundColor': 'lightgray',
-    'border': '2px solid gray',
-  };
+import { addButtonStyles } from './Duck.js';
+
   let duckInCartStyle = {
     'padding': '3px',
     'borderLeft': '2px solid gray',
