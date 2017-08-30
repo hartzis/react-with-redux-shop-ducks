@@ -1,5 +1,13 @@
 import React, { PropTypes } from 'react';
 
+export const addButtonStyles = {
+   'margin': '5px',
+   'padding': '5px',
+   'backgroundColor': 'lightgray',
+   'border': '2px solid gray',
+   'cursor': 'pointer',
+ };
+
 export default function Duck(props) {
 
   let {duck, inCart, addToCart} = props;
@@ -9,12 +17,6 @@ export default function Duck(props) {
     'margin': '3px',
     'padding': '3px',
  };
- let addButtonStyles = {
-    'margin': '5px',
-    'padding': '5px',
-    'backgroundColor': 'lightgray',
-    'border': '2px solid gray',
-  };
   let duckTitleStyle = {
     'maxWidth': '240px',
     'textOverflow': 'ellipsis',
