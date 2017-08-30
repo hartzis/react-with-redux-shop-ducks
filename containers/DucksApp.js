@@ -6,7 +6,7 @@ import DuckCart from '../components/DuckCart';
 import ShopSearch from '../components/ShopSearch';
 import * as CartActions from '../actions/CartActions';
 
-const INITIAL_QUERY = 'duck';
+const INITIAL_QUERY = 'baby ducks';
 
 class DucksApp extends Component {
 
