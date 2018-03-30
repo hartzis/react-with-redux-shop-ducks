@@ -3,11 +3,9 @@ import DucksApp from './DucksApp';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import {reducer as formReducer} from 'redux-form';
 import cartReducer from '../reducers/cart';
 
 const reducers = {
-  form: formReducer,
   cart: cartReducer,
 };
 console.dir(reducers);

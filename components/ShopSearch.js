@@ -1,20 +1,18 @@
-import React, {Component} from 'react';
-import {reduxForm} from 'redux-form';
+import React from 'react';
+import { connect } from 'react-redux';
+import * as CartActions from '../actions/CartActions';
 
-function ShopSearch(props) {
-  const {fields: {query}, handleSubmit} = props;
+function ShopSearch({query, onChange, onSubmit}) {
+  
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <div style={{display: 'inline-block'}}>
         <label>Shop Query:</label>
-        <input type="text" placeholder="enter query here" {...query}/>
+        <input type="text" placeholder="enter query here" value={query} onChange={(e)=>onChange(e.target.value)} />
       </div>
-      <button onClick={handleSubmit}>Search Shop</button>
+      <button type='submit' onClick={onSubmit}>Search Shop</button>
     </form>
   );
 }
 
-export default reduxForm({
-  form: 'search',
-  fields: ['query']
-})(ShopSearch);
+export default connect(({cart})=>({query: cart.get('query')}), {onChange: CartActions.setQuery})(ShopSearch);
