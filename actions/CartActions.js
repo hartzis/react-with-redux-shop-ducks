@@ -1,44 +1,28 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS, SET_LOADING} from '../constants/ActionTypes';
+import {ADD_TO_CART, REMOVE_FROM_CART, SET_DUCKS, SET_LOADING, SET_QUERY} from '../constants/ActionTypes';
 import {getDucks as getDucksData} from '../data/getData';
 
-export function addToCart(duck) {
-  let {date_taken, title, link} = duck;
-  return {
-    type: ADD_TO_CART,
-    payload: { date_taken, title, link }
-  }
+function createAction(type) {
+  return (payload) => ({ type, payload });
 }
 
-export function removeFromCart(duck) {
-  return {
-    type: REMOVE_FROM_CART,
-    payload: duck
-  }
-}
+export const setQuery = createAction(SET_QUERY);
 
-export function setLoading(value) {
-  return {
-    type: SET_LOADING,
-    payload: value
-  }
-}
+export const addToCart = createAction(ADD_TO_CART);
 
-export function setDucks(ducks) {
-  return {
-    type: SET_DUCKS,
-    payload: ducks
-  }
-}
+export const removeFromCart = createAction(REMOVE_FROM_CART);
+
+export const setLoading = createAction(SET_LOADING);
+
+export const setDucks = createAction(SET_DUCKS);
 
 export function getDucks(query) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const q = query || getState().cart.get('query');
     // loading cart
     dispatch(setLoading(true));
     // find cart items by query
-    getDucksData((ducks)=>{
+    getDucksData({ query: q }, (ducks)=>{
       dispatch(setDucks(ducks));
-    }, {
-      query
     })
   }
 }

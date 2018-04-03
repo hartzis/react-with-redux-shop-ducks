@@ -6,16 +6,20 @@ import DuckCart from '../components/DuckCart';
 import ShopSearch from '../components/ShopSearch';
 import * as CartActions from '../actions/CartActions';
 
-const INITIAL_QUERY = 'baby ducks';
-
 class DucksApp extends Component {
 
-  componentDidMount() {
-    this.props.getDucks(INITIAL_QUERY);
+  constructor(props, context) {
+    super(props, context);
+    this._onSubmit = this._onSubmit.bind(this);
   }
 
-  _onSubmit({query}) {
-    this.props.getDucks(query);
+  componentDidMount() {
+    this.props.getDucks();
+  }
+
+  _onSubmit(e) {
+    e && e.preventDefault && e.preventDefault();
+    this.props.getDucks();
   }
 
   render() {
@@ -24,7 +28,7 @@ class DucksApp extends Component {
       <div className="appContainer">
         <h1 className="duckTitle">Shop ducks with redux!</h1>
         <h5 className="disclaimer">&#42; some ducks might not actually be ducks</h5>
-        <ShopSearch initialValues={{query: INITIAL_QUERY}} onSubmit={(data)=>this._onSubmit(data)}/>
+        <ShopSearch onSubmit={this._onSubmit}/>
         <hr/>
         <DuckCart ducksInCart={ducksInCart}
           addToCart={addToCart}

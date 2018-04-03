@@ -1,4 +1,4 @@
- export function getDucks(passedInCallback, {query}) {
+ export function getDucks({query}, passedInCallback) {
 
     // setup query
     let tags = query || '';
