@@ -1,5 +1,7 @@
 > Updated deps - Feb 2017
 
+Originally created - July 2015
+
 # react-with-redux-shop-ducks
 "searchable" shopping cart example with react, redux, and redux-form
 
